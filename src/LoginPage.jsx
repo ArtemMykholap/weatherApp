@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 class LoginPage extends Component {
+
     state = {
         login: '',
         pass: '',
@@ -10,13 +12,15 @@ class LoginPage extends Component {
         users: []
     }
 
-
     async componentDidMount() {
+        if (localStorage.getItem('token')
+        ) {
+            this.props.history.push('/weather');
+        }
         const response = await fetch(`https://5f5b5ffb044570001674cd80.mockapi.io/api/v1/users`);
         const users = await response.json();
         this.setState({ users: users });
     }
-
 
     handleChange = event => {
         const isCheckbox = event.target.type === 'checkbox';
@@ -27,45 +31,39 @@ class LoginPage extends Component {
         });
     };
 
-
     validate = () => {
         let errorLogin = '';
         let errorPass = '';
         if (this.state.login.length < 6 || this.state.login.length > 100) {
-            errorLogin = 'min 6 symbols /max 100 symbols'
+            errorLogin = 'min 6 symbols /max 100 symbols';
         }
         if (this.state.pass.length < 6 || this.state.pass.length > 100) {
-            errorPass = 'min 6 symbols /max 100 symbols'
+            errorPass = 'min 6 symbols /max 100 symbols';
         }
         if (errorLogin || errorPass) {
             this.setState({ errorLogin, errorPass });
             return false;
         }
-        return true
+        return true;
     }
-
 
     checkLogged(login, pass) {
         let errorLoggedUser = '';
-        console.log(this);
         const user = this.state.users.find(user => user.login === login && user.pass === pass);
         if (!user) {
-            errorLoggedUser = 'User not found'
+            errorLoggedUser = 'User not found';
             this.setState({ errorLoggedUser });
+            return ;
         }
+        localStorage.setItem('token', 'fakeToken');
         return !!user;
     }
-
-
 
     handleSubmit = event => {
         event.preventDefault();
         const isValid = this.validate() && this.checkLogged(this.state.login, this.state.pass);
-        console.log(isValid, this);
         if (isValid) {
             this.props.history.push('/weather');
-        } else {
-            return;
         }
     }
 
@@ -101,4 +99,5 @@ class LoginPage extends Component {
         )
     }
 }
-export default LoginPage
+
+export default withRouter(LoginPage);

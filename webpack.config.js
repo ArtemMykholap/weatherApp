@@ -11,6 +11,7 @@ module.exports = (env, argv) => {
     output: {
       path: `${__dirname}/build`,
       filename: "bundle.js",
+      publicPath: '/'
     },
     module: {
       rules: [
@@ -43,6 +44,7 @@ module.exports = (env, argv) => {
     },
     devServer: {
       hot: true,
+      historyApiFallback: true
     },
   };
 

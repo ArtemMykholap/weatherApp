@@ -123,6 +123,26 @@ input {
     -o-transition: all 2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
+.logout{
+    text-decoration: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 130px;
+    display: block;
+    height: 40px;
+    outline: none;
+    font-size: 17px;
+    color: #fff;
+    border-radius: 6px;
+    border: none;
+    background-color: #606368;
+    -webkit-transition: all 2s ease-in-out;
+    -moz-transition: all 2s ease-in-out;
+    -o-transition: all 2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
 
 .button-submit {
     position: absolute;
@@ -131,7 +151,8 @@ input {
     left: 25px;
 }
 
-.button-submit:active {
+.button-submit:active,
+.logout:active {
     box-shadow: 3px 3px 10px #333;
 }
 

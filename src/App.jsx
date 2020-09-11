@@ -6,11 +6,11 @@ import {
     Switch,
     Redirect,
     withRouter
-} from "react-router-dom"
+} from 'react-router-dom';
+import ProtectedRoute from './ProtectedRoute';
 
 class App extends Component {
 
-    
     state = {
         temp: undefined,
         feels_like: undefined,
@@ -19,24 +19,17 @@ class App extends Component {
     }
 
     render() {
-        const { history } = this.props
-
+        const { history } = this.props;
         return (
             <>
                 <Switch>
-                    <Route history={history} path='/login' component={LoginPage} />
-                    <Route history={history} path='/weather' component={WeatherPage}/>
+                    <Route  history={history} path='/login' component={LoginPage} />
+                    <ProtectedRoute history={history} path='/weather' component={WeatherPage}/>
                     <Redirect from='/' to='/login' />
                 </Switch>
             </>
-            // <>
-            //     <Form getWeather={this.getWeather} />
-            //     <Weather
-            //         temp={this.state.temp}
-            //         feels_like={this.state.feels_like}
-            //         name={this.state.name} />
-            // </>
         )
     }
 }
-export default withRouter(App)
+
+export default withRouter(App);
