@@ -1,0 +1,180 @@
+html {
+    background: url(http://cdn.magdeleine.co/wp-content/uploads/2014/05/3jPYgeVCTWCMqjtb7Dqi_IMG_8251-1400x933.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+}
+
+img {
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: auto;
+}
+
+.error {
+    font-size: 12px;
+    color: 'red';
+}
+
+#login-button {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 30px;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(3, 3, 3, .8);
+    overflow: hidden;
+    opacity: 0.4;
+    box-shadow: 10px 10px 30px #000;
+}
+
+
+/* Login container */
+
+#container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 260px;
+    height: 300px;
+    border-radius: 5px;
+    background: rgba(3, 3, 3, 0.25);
+    box-shadow: 1px 1px 50px #000;
+    // display: none;
+}
+
+.weather__info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 260px;
+    height: 150px;
+    border-radius: 5px;
+    background: rgba(3, 3, 3, 0.25);
+    box-shadow: 1px 1px 50px #000;
+}
+
+.info {
+    display: block;
+    font-size: 19px;
+    color: white;
+    margin: 10px;
+    margin-left: 30px;
+    text-shadow: 1px 3px 5px black, 0 0 1em #293107;
+}
+
+.first {
+    margin-top: 30px;
+}
+
+
+/* Heading */
+
+h1 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    position: relative;
+    margin-top: 0px;
+    text-align: center;
+    font-size: 40px;
+    color: #ddd;
+    text-shadow: 3px 3px 10px #000;
+}
+
+.error {
+    font-size: 12px;
+    color: rgb(255, 86, 86);
+    text-align: center;
+}
+
+
+/* Inputs */
+
+.button-submit,
+input {
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-decoration: none;
+    position: relative;
+    width: 80%;
+    display: block;
+    margin: 11px auto;
+    font-size: 17px;
+    color: #fff;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    background: rgba(3, 3, 3, .1);
+    -webkit-transition: all 2s ease-in-out;
+    -moz-transition: all 2s ease-in-out;
+    -o-transition: all 2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.button-submit {
+    position: absolute;
+    /* top: 10px; */
+    bottom: 10px;
+    left: 25px;
+}
+
+.button-submit:active {
+    box-shadow: 3px 3px 10px #333;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 3px 3px 10px rgb(37, 37, 37);
+    background: rgba(3, 3, 3, .18);
+}
+
+
+/* Placeholders */
+
+ ::-webkit-input-placeholder {
+    color: #ddd;
+}
+
+ :-moz-placeholder {
+    /* Firefox 18- */
+    color: red;
+}
+
+ ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: red;
+}
+
+ :-ms-input-placeholder {
+    color: #333;
+}
+
+.button-submit {
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-align: center;
+    padding: 8px 8px;
+    margin-top: 20px;
+    background: rgba(107, 255, 3, 0.3);
+    outline: none;
+}
+
+.button-submit:hover {
+    opacity: 0.7;
+}
+
+.orange-btn {
+    background: rgba(87, 198, 255, .5);
+}
