@@ -31,11 +31,11 @@ class Form extends Component {
         let errorLogin = '';
         let errorPass = '';
 
-        if (this.state.login.length < 6) {
-            errorLogin = 'min 6 symbols'
+        if (this.state.login.length < 6 || this.state.login.length > 100) {
+            errorLogin = 'min 6 symbols /max 100 symbols'
         }
-        if (this.state.pass.length < 6) {
-            errorPass = 'min 6 symbols'
+        if (this.state.pass.length < 6  || this.state.pass.length > 100) {
+            errorPass = 'min 6 symbols /max 100 symbols'
         }
         if (errorLogin || errorPass) {
             this.setState({ errorLogin, errorPass });

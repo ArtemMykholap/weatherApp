@@ -5,9 +5,9 @@ const Weather=props=>{
         <>
         {props.temp && 
         <div className="weather__info" >
-            <span className="info first">My City: {props.name}</span>
-            <span className='info'>Temperature: {props.temp}</span>
-            <span  className='info'>Feels Like: {props.feels_like}</span>
+            <span className="info first">My City: {props.name} </span>
+            <span className='info'>Temperature: {props.temp} ℃</span>
+            <span  className='info'>Feels Like: {props.feels_like} ℃</span>
         </div>
         }
         </>
