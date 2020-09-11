@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
 
-
-const initialState = {
-    login: '',
-    pass: '',
-    errorLogin: '',
-    errorPass: ''
-}
-
-
-class Form extends Component {
+class LoginPage extends Component {
     state = {
         login: '',
         pass: '',
         errorLogin: '',
-        errorPass: ''
+        errorPass: '',
+        errorLoggedUser: '',
+        users: []
     }
 
+
+    async componentDidMount() {
+        const response = await fetch(`https://5f5b5ffb044570001674cd80.mockapi.io/api/v1/users`);
+        const users = await response.json();
+        this.setState({ users: users });
+    }
+
+
     handleChange = event => {
-        const isCheckbox = event.target.type === "checkbox";
+        const isCheckbox = event.target.type === 'checkbox';
         this.setState({
             [event.target.name]: isCheckbox
                 ? event.target.checked
@@ -30,11 +31,10 @@ class Form extends Component {
     validate = () => {
         let errorLogin = '';
         let errorPass = '';
-
         if (this.state.login.length < 6 || this.state.login.length > 100) {
             errorLogin = 'min 6 symbols /max 100 symbols'
         }
-        if (this.state.pass.length < 6  || this.state.pass.length > 100) {
+        if (this.state.pass.length < 6 || this.state.pass.length > 100) {
             errorPass = 'min 6 symbols /max 100 symbols'
         }
         if (errorLogin || errorPass) {
@@ -44,20 +44,39 @@ class Form extends Component {
         return true
     }
 
+
+    checkLogged(login, pass) {
+        let errorLoggedUser = '';
+        console.log(this);
+        const user = this.state.users.find(user => user.login === login && user.pass === pass);
+        if (!user) {
+            errorLoggedUser = 'User not found'
+            this.setState({ errorLoggedUser });
+        }
+        return !!user;
+    }
+
+
+
     handleSubmit = event => {
         event.preventDefault();
-        const isValid = this.validate();
+        const isValid = this.validate() && this.checkLogged(this.state.login, this.state.pass);
+        console.log(isValid, this);
         if (isValid) {
-            this.setState(this.props.getWeather())
+            this.props.history.push('/weather');
+        } else {
+            return;
         }
     }
 
     render() {
-
         return (
             <>
                 <div id="container">
                     <h1>Log In</h1>
+                    <div className='error' >{
+                        this.state.errorLoggedUser}
+                    </div>
                     <form onSubmit={this.handleSubmit}>
                         <input type="login"
                             name="login"
@@ -78,9 +97,8 @@ class Form extends Component {
                         <button className='button-submit' type='submit' >Log in</button>
                     </form>
                 </div>
-      
             </>
         )
     }
 }
-export default Form
+export default LoginPage
