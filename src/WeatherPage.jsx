@@ -18,7 +18,7 @@ class Weather extends Component {
 
     getWeather = async (e) => {
         const api_url = await
-            fetch(`https://api.openweathermap.org/data/2.5/weather?q=Kharkiv,ua&appid=26e1f90fef4f24b668a3ee9669a5d7ce&units=metric`)
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=Kharkiv,ua&appid=7d95edd951366cb58ffa02a3e995ed3a&units=metric`)
         const data = await api_url.json()
         this.setState({
             temp: data.main.temp,
