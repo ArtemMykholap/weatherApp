@@ -11,13 +11,6 @@ import ProtectedRoute from './ProtectedRoute';
 
 class App extends Component {
 
-    state = {
-        temp: undefined,
-        feels_like: undefined,
-        clouds: undefined,
-        name: undefined
-    }
-
     render() {
         const { history } = this.props;
         return (

@@ -19,7 +19,7 @@ class LoginPage extends Component {
         }
         const response = await fetch(`https://5f5b5ffb044570001674cd80.mockapi.io/api/v1/users`);
         const users = await response.json();
-        this.setState({ users: users });
+        this.setState({ users });
     }
 
     handleChange = event => {
